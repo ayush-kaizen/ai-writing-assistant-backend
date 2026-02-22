@@ -12,7 +12,13 @@ const anthropic = new Anthropic({
 });
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://ai-writing-assistant-frontend-one.vercel.app'
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 // Test route
